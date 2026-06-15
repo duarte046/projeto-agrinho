@@ -1,1 +1,152 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f5; /* Verde bem claro/esbranqueado */
+    color: #2c3e35; /* Verde escuro para o texto ter bom contraste */
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+    background-color: transparent;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #1e4620;
+    letter-spacing: -0.5px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #556b60;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #1e4620;
+}
+
+.nav .btn-nav {
+    background-color: #1e4620;
+    color: #ffffff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+}
+
+.nav .btn-nav:hover {
+    background-color: #2d6630;
+    color: #ffffff;
+}
+
+/* Container Principal */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Seção Hero (Destaque) */
+.hero {
+    padding: 5rem 0;
+    max-width: 700px;
+}
+
+.tagline {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #556b60;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: #1e4620;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #556b60;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.btn-principal {
+    background-color: #1e4620;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-principal:hover {
+    background-color: #2d6630;
+    transform: translateY(-2px);
+}
+
+/* Grid de Pilares */
+.grid-pilares {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+}
+
+.pilar-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.pilar-card h3 {
+    font-size: 1.3rem;
+    color: #1e4620;
+    margin-bottom: 1rem;
+}
+
+.pilar-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Rodapé */
+.footer {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 0.85rem;
+    color: #8fa499;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Responsividade simples para celulares */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .header { padding: 1.5rem 5%; }
+    .nav a { margin-left: 1rem; font-size: 0.85rem; }
+}
