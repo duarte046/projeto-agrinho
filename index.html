@@ -8,25 +8,85 @@
 </head>
 <body>
 
-    <header>
-        <div class="vector-illustration">
-            <div class="sun"></div>
-            <div class="cloud"></div>
-            <div class="field">
-                <div class="crop-rows"></div>
-                <div class="tractor">
-                    <div class="cabin"></div>
-                    <div class="wheel wheel-back"></div>
-                    <div class="wheel wheel-front"></div>
-                </div>
-            </div>
-        </div>
+    <div class="accessibility-bar">
+        <button id="btn-increase-text">Aumentar Texto +</button>
+        <button id="btn-decrease-text">Diminuir Texto -</button>
+        <button id="btn-toggle-brightness">Alternar Brilho 💡</button>
+    </div>
 
-        <h1>Agro Forte, <span>Futuro Sustentável</span></h1>
-        <p>O equilíbrio essencial entre a <strong>produção de alimentos</strong> e a <strong>preservação do meio ambiente</strong> no campo.</p>
+    <header class="hero-section" id="inicio">
+        <div class="hero-content">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>O equilíbrio perfeito entre a alta produção agrícola e a preservação do meio ambiente.</p>
+            <a href="#conteudo" class="btn-main">Conhecer o Projeto</a>
+        </div>
     </header>
 
-    <main>
+    <main id="conteudo" class="main-content">
         <section class="info-block">
-            <h2>O Grande Desafio do Século XXI</h2>
-            <p>Até 2050, a população
+            <h2>O Desafio da Sustentabilidade no Campo</h2>
+            <p>O conceito de "Agro Forte, Futuro Sustentável" baseia-se na premissa de que a segurança alimentar global depende diretamente da conservação dos nossos recursos naturais. Produzir mais sem desmatar e utilizando menos recursos hídricos é o grande objetivo da agricultura moderna.</p>
+        </section>
+
+        <section class="info-block">
+            <h2>Tecnologias Verdes e Inovação</h2>
+            <p>A tecnologia é a maior aliada desse equilíbrio. Ferramentas como a agricultura de precisão, drones para monitoramento de lavouras, bioinsumos que substituem defensivos químicos e sistemas de irrigação inteligente reduzem drasticamente o impacto ambiental enquanto elevam a produtividade.</p>
+        </section>
+
+        <section class="info-block">
+            <h2>Práticas Essenciais: Plantio Direto e ILPF</h2>
+            <p>A Integração Lavoura-Pecuária-Floresta (ILPF) e o Sistema de Plantio Direto são exemplos práticos de sustentabilidade. Elas ajudam no sequestro de carbono do solo, evitam a erosão, recuperam pastagens degradadas e diversificam a renda do produtor de forma ecológica.</p>
+        </section>
+
+        <div class="center-btn">
+            <a href="#quiz-section" class="btn-main">Ir para o Quiz Final</a>
+        </div>
+    </main>
+
+    <section id="quiz-section" class="quiz-container">
+        <h2>Teste seu Conhecimento</h2>
+        <p>Responda às perguntas abaixo sobre o Agro Sustentável:</p>
+
+        <form id="quiz-form">
+            <div class="question" id="q1-box">
+                <p>1. Qual o principal objetivo do "Agro Forte, Futuro Sustentável"?</p>
+                <label><input type="radio" name="q1" value="errado"> Produzir o máximo possível sem se preocupar com o solo.</label><br>
+                <label><input type="radio" name="q1" value="correto"> Equilibrar a alta produção com a preservação ambiental.</label><br>
+                <label><input type="radio" name="q1" value="errado"> Substituir toda a agricultura por florestas nativas.</label>
+            </div>
+
+            <div class="question" id="q2-box">
+                <p>2. O que é a tecnologia de Agricultura de Precisão?</p>
+                <label><input type="radio" name="q2" value="correto"> Uso de tecnologia para aplicar insumos no local e quantidade exatos.</label><br>
+                <label><input type="radio" name="q2" value="errado"> A técnica de plantar manualmente sem máquinas.</label><br>
+                <label><input type="radio" name="q2" value="errado"> O desmatamento controlado de novas áreas.</label>
+            </div>
+
+            <div class="question" id="q3-box">
+                <p>3. O que significa a sigla ILPF?</p>
+                <label><input type="radio" name="q3" value="errado"> Indústria de Lavoura Pronta e Forte.</label><br>
+                <label><input type="radio" name="q3" value="errado"> Inovação de Limpeza de Pastagens e Florestas.</label><br>
+                <label><input type="radio" name="q3" value="correto"> Integração Lavoura-Pecuária-Floresta.</label>
+            </div>
+
+            <div class="question" id="q4-box">
+                <p>4. Como os bioinsumos ajudam o meio ambiente?</p>
+                <label><input type="radio" name="q4" value="correto"> Substituem ou reduzem o uso de defensivos químicos poluentes.</label><br>
+                <label><input type="radio" name="q4" value="errado"> Aumentando a necessidade de irrigação diária.</label><br>
+                <label><input type="radio" name="q4" value="errado"> Modificando o clima da região plantada.</label>
+            </div>
+
+            <div class="question" id="q5-box">
+                <p>5. O Plantio Direto ajuda a evitar qual problema no solo?</p>
+                <label><input type="radio" name="q5" value="errado"> O crescimento de raízes saudáveis.</label><br>
+                <label><input type="radio" name="q5" value="correto"> A erosão e a degradação do solo.</label><br>
+                <label><input type="radio" name="q5" value="errado"> A absorção de água da chuva.</label>
+            </div>
+
+            <button type="button" id="btn-submit-quiz">Verificar Respostas</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
