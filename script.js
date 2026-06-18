@@ -1,35 +1,49 @@
-// Banco de dados complexo contendo muita informação sobre o tema do Agro Sustentável
-const dadosSustentaveis = {
-    dadosHidricos: {
-        titulo: "Manejo Inteligente de Recursos Hídricos",
-        texto: "A agricultura irrigada responde por uma grande fatia do consumo de água doce. Para equilibrar esse cenário, sistemas modernos utilizam o <strong>gotejamento subterrâneo</strong>, que aplica a água diretamente na raiz da planta, reduzindo as perdas por evaporação em até <strong>95%</strong>. Além disso, softwares integrados cruzam dados de previsão do tempo com sensores de solo para <strong>barrar irrigações desnecessárias</strong> em dias chuvosos."
-    },
-    dadosSolo: {
-        titulo: "Recuperação de Pastagens e Plantio Direto",
-        texto: "O segredo para não desmatar é otimizar o solo que já é usado. O sistema de <strong>Plantio Direto</strong> mantém os restos vegetais da colheita anterior sobre a terra, criando uma barreira protetora que <strong>evita a erosão em até 90%</strong> e mantém a umidade natural. Juntamente com a rotação de culturas, essa técnica armazena toneladas de <strong>carbono orgânico diretamente no solo</strong>, atuando contra o efeito estufa."
-    },
-    dadosBio: {
-        titulo: "A Revolução Silenciosa dos Bioinsumos",
-        texto: "Os defensivos químicos estão cedendo espaço para a biologia. O uso de <strong>bioinsumos</strong> envolve a aplicação de fungos, bactérias e insetos benéficos para combater pragas e fertilizar a lavoura de forma natural. Microrganismos como o <i>Bradyrhizobium</i> conseguem capturar o <strong>nitrogênio do próprio ar</strong> e transferi-lo para as plantas, diminuindo drasticamente a dependência de adubos sintéticos derivados do petróleo."
-    },
-    dadosTec: {
-        titulo: "Agricultura de Precisão e Monitoramento por IA",
-        texto: "Hardwares acoplados a tratores e drones sobrevoam as lavouras mapeando falhas nutricionais através de câmeras multiespectrais. A inteligência artificial gera mapas de aplicação com <strong>taxa variável</strong>. Isso garante que fertilizantes ou defensivos sejam aplicados com <strong>precisão milimétrica apenas nas plantas doentes</strong>, reduzindo o uso de químicos em até <strong>40%</strong> nas propriedades rurais."
+// --- CONTROLES DE ACESSIBILIDADE ---
+let currentFontSize = 100; // Porcentagem inicial do tamanho da fonte
+
+// Aumentar o tamanho do texto
+document.getElementById('btn-increase-text').addEventListener('click', () => {
+    currentFontSize += 10;
+    document.body.style.fontSize = currentFontSize + '%';
+});
+
+// Diminuir o tamanho do texto
+document.getElementById('btn-decrease-text').addEventListener('click', () => {
+    if (currentFontSize > 70) { // Limite mínimo de tamanho
+        currentFontSize -= 10;
+        document.body.style.fontSize = currentFontSize + '%';
     }
-};
+});
 
-function mostrarDetalhes(pilar) {
-    const painel = document.getElementById('painel-detalhes');
-    const titulo = document.getElementById('detalhe-titulo');
-    const texto = document.getElementById('detalhe-texto');
+// Alternar brilho do site (Abaixar / Normalizar)
+document.getElementById('btn-toggle-brightness').addEventListener('click', () => {
+    document.body.classList.toggle('low-brightness');
+});
 
-    // Substitui o conteúdo com base no card selecionado
-    titulo.innerHTML = `<strong>${dadosSustentaveis[pilar].titulo}</strong>`;
-    texto.innerHTML = dadosSustentaveis[pilar].texto;
+
+// --- VALIDAÇÃO DO QUIZ INTERATIVO ---
+document.getElementById('btn-submit-quiz').addEventListener('click', () => {
+    // Array com o nome dos grupos de inputs de cada pergunta
+    const totalQuestions = 5;
     
-    // Mostra a seção removendo a classe de ocultação do CSS
-    painel.classList.remove('escondido');
-    
-    // Desloca a visão do usuário suavemente até o painel revelado
-    painel.scrollIntoView({ behavior: 'smooth' });
-}
+    for (let i = 1; i <= totalQuestions; i++) {
+        const questionBox = document.getElementById(`q1-box`.replace('1', i));
+        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+
+        // Remove classes de validações anteriores para atualizar
+        questionBox.classList.remove('correct-question', 'wrong-question');
+
+        if (selectedOption) {
+            if (selectedOption.value === 'correto') {
+                // Se acertou, a pergunta inteira ganha a estilização verde
+                questionBox.classList.add('correct-question');
+            } else {
+                // Se errou, a pergunta ganha a estilização vermelha
+                questionBox.classList.add('wrong-question');
+            }
+        } else {
+            // Se não respondeu, aplica a estilização de erro por padrão
+            questionBox.classList.add('wrong-question');
+        }
+    }
+});
